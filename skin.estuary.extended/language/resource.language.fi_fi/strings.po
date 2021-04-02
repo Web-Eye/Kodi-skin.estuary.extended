@@ -396,10 +396,6 @@ msgctxt "#31114"
 msgid "Search YouTube"
 msgstr "Etsi YouTubesta"
 
-msgctxt "#31115"
-msgid "Toggle subtitle"
-msgstr "Kytke tekstitys"
-
 msgctxt "#31116"
 msgid "Remove this main menu item"
 msgstr "Poista tämä kohde päävalikosta"

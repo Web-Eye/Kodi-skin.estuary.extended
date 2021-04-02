@@ -404,13 +404,16 @@
 						<include content="WidgetListCategories" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://tv/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="pvr"/>
 							<param name="list_id" value="12900"/>
 						</include>
+
 						<include content="WidgetListChannels" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://channels/tv/*?view=lastplayed"/>
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31016]"/>
+							<param name="widget_target" value="pvr"/>
 							<param name="list_id" value="12200"/>
 						</include>
 						<include content="WidgetListChannels" condition="System.HasPVRAddon">
@@ -418,6 +421,7 @@
 							<param name="sortby" value="date"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31015]"/>
+							<param name="widget_target" value="pvr"/>
 							<param name="list_id" value="12300"/>
 							<param name="label" value="$INFO[ListItem.ChannelName]"/>
 							<param name="label2" value="$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]"/>
@@ -451,11 +455,11 @@
 						<pagecontrol>13010</pagecontrol>
 						<control type="grouplist" id="13855">
 							<height>390</height>
-							<left>0</left>
-							<right>0</right>
+							<left>25</left>
 							<top>36</top>
 							<orientation>horizontal</orientation>
-							<align>center</align>
+							<align>right</align>
+							<width>1360</width>
 							<visible>PVR.IsRecordingRadio | PVR.HasNonRecordingRadioTimer</visible>
 							<control type="group">
 								<width>680</width>
@@ -481,6 +485,7 @@
 						<include content="WidgetListCategories" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://radio/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
+							<param name="widget_target" value="pvr"/>
 							<param name="list_id" value="13900"/>
 						</include>
 						<include content="WidgetListChannels" condition="System.HasPVRAddon">
@@ -488,6 +493,7 @@
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31018]"/>
+							<param name="widget_target" value="files"/>
 							<param name="list_id" value="13200"/>
 						</include>
 						<include content="WidgetListChannels" condition="System.HasPVRAddon">
@@ -495,6 +501,7 @@
 							<param name="sortby" value="date"/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[31015]"/>
+							<param name="widget_target" value="pvr"/>
 							<param name="list_id" value="13300"/>
 							<param name="label" value="$INFO[ListItem.ChannelName]"/>
 							<param name="label2" value="$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]"/>
@@ -1107,8 +1114,8 @@
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<top>30</top>
-				<left>90</left>
+				<top>22</top>
+				<left>95</left>
 				<control type="image">
 					<left>4</left>
 					<top>0</top>
