@@ -667,3 +667,7 @@ msgstr "Show Album Artists"
 msgctxt "#31514"
 msgid "In progress episodes"
 msgstr "Begonnene Folgen"
+
+msgctxt "#31515"
+msgid "[mod] disable cleararts"
+msgstr "[mod] disable cleararts"

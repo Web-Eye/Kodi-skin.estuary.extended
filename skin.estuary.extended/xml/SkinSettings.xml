@@ -135,6 +135,12 @@
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
 					<selected>Skin.HasSetting(show_musicvideoposter)</selected>
 				</control>
+				<control type="radiobutton" id="6068">
+					<label>$LOCALIZE[31515]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(disable_clearart)</onclick>
+					<selected>Skin.HasSetting(disable_clearart)</selected>
+				</control>
 			</control>
 			<control type="grouplist" id="610">
 				<top>133</top>
