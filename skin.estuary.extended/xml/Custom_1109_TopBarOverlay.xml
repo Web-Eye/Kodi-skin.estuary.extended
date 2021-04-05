@@ -2,6 +2,7 @@
 <window type="dialog" id="1109">
 	<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
 	<visible>Window.IsActive(seekbar) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)</visible>
+	<visible>!Window.IsActive(playerprocessinfo)</visible>
 	<depth>DepthOSD</depth>
 	<include>Animation_TopSlide</include>
 	<zorder>0</zorder>
@@ -12,7 +13,7 @@
             <visible>!Window.IsActive(musicosd)</visible>
             <visible>!Window.IsVisible(DialogFullScreenInfo.xml)</visible>
             <visible>![Window.IsActive(sliderdialog) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrguideinfo)]</visible>
-            <visible>!player.ShowInfo</visible>
+            <visible>!Player.ShowInfo</visible>
 			<top>20</top>
             <left>1220</left>
 			<control type="group">
@@ -121,6 +122,7 @@
 				<animation effect="slide" end="90,0" time="0" condition="Skin.HasSetting(touchmode)">conditional</animation>
 				<control type="grouplist">
 					<visible>!String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(Player.Art(clearlogo))</visible>
+					<visible>!Skin.HasSetting(disable_clearart)</visible>
 					<top>10</top>
 					<left>20</left>
 					<right>400</right>
@@ -143,8 +145,7 @@
 				</control>
 				<control type="group">
 					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>
-					<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
-					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
+					<visible>Skin.HasSetting(disable_clearart) | [String.IsEmpty(Player.Art(clearlogo)) + String.IsEmpty(Player.Art(tvshow.clearlogo))]</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<left>20</left>
 					<right>400</right>
