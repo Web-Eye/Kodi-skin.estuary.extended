@@ -179,7 +179,10 @@
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
 						</include>
-						<onclick>Info</onclick>
+						<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
+						<onclick condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
+                        <visible>!VideoPlayer.Content(livetv) + !VideoPlayer.HasMenu + !VideoPlayer.Content(musicvideos)</visible>
+                        <visible>VideoPlayer.Content(movies)</visible>
 					</control>
 					<control type="radiobutton" id="70044">
 						<include content="OSDButton">
