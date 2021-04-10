@@ -12,6 +12,7 @@
 			<animation effect="slide" start="0,200" end="0,0" time="300" tween="cubic" easing="out">VisibleChange</animation>
 			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(PVR.ChannelNumberInput) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) | ![!String.IsEmpty(Player.SeekNumeric) | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding | Player.Paused]</visible>
 			<visible>!Player.HasGame</visible>
+			<visible>!Window.IsActive(visualisation)</visible>
 			<bottom>0</bottom>
 			<height>190</height>
 			<control type="image">
@@ -85,7 +86,7 @@
 					<include>Animation_BottomSlide</include>
 					<orientation>horizontal</orientation>
 					<itemgap>10</itemgap>
-					<visible>Player.ShowInfo + !Player.ChannelPreviewActive + Window.IsActive(visualisation)</visible>
+					<visible>Player.ShowInfo + !Player.ChannelPreviewActive + !Window.IsActive(visualisation)</visible>
 					<animation effect="fade" start="0" end="100" time="200" delay="1000">Visible</animation>
 					<include content="MediaFlag">
 						<param name="texture" value="flags/rds/rds.png" />
@@ -144,7 +145,6 @@
 					</control>
 				</control>
 			</control>
-
 			<control type="group">
                 <visible>player.chaptercount + Window.IsVisible(FullScreenVideo)</visible>
 				<visible>!Window.IsVisible(videoosd)</visible>
@@ -168,7 +168,6 @@
                     <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
                 </control>
             </control>
-
 			<control type="label">
 				<include>Animation_BottomSlide</include>
 				<centerleft>50%</centerleft>
@@ -181,6 +180,7 @@
 				<font>font45</font>
 				<shadowcolor>black</shadowcolor>
 				<visible>!Player.ChannelPreviewActive | VideoPlayer.HasEpg</visible>
+				<visible>!Window.IsActive(visualisation)</visible>
 			</control>
 			<control type="label" id="40000">
 				<include>Animation_BottomSlide</include>
@@ -193,6 +193,7 @@
 				<label>$VAR[SeekLabel]</label>
 				<font>font13</font>
 				<shadowcolor>black</shadowcolor>
+				<visible>!Window.IsActive(visualisation)</visible>
 			</control>
 			<control type="group">
 				<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -342,7 +343,7 @@
 			<height>380</height>
 			<control type="label">
 				<left>20</left>
-				<width>220</width>
+				<width>290</width>
 				<top>-80</top>
 				<height>25</height>
 				<label>$INFO[VideoPlayer.ChannelNumberLabel]</label>
