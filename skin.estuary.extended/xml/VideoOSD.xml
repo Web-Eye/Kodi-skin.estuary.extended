@@ -175,14 +175,19 @@
 						<onclick>ActivateWindow(videoplaylist)</onclick>
 						<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 					</control>
+					<control type="radiobutton" id="70049">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/rating.png"/>
+						</include>
+						<onclick>Skin.ToggleSetting(show_progressbar)</onclick>
+					</control>
 					<control type="radiobutton" id="70043">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
 						</include>
-						<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
+						<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.OriginalTitle])</onclick>
 						<onclick condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
-                        <visible>!VideoPlayer.Content(livetv) + !VideoPlayer.HasMenu + !VideoPlayer.Content(musicvideos)</visible>
-                        <visible>VideoPlayer.Content(movies)</visible>
+						<visible>!VideoPlayer.Content(livetv) + !VideoPlayer.HasMenu + !VideoPlayer.Content(musicvideos)</visible>
 					</control>
 					<control type="radiobutton" id="70044">
 						<include content="OSDButton">

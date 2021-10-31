@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1109">
-	<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(musicosd) |Window.IsActive(visualisation)</visible>
-	<visible>Window.IsActive(seekbar) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)</visible>
+	<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(musicosd) | Window.IsActive(visualisation)</visible>
+	<visible>Window.IsActive(seekbar) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)| Skin.HasSetting(show_progressbar)</visible>
 	<visible>!Window.IsActive(playerprocessinfo)</visible>
 	<depth>DepthOSD</depth>
 	<include>Animation_TopSlide</include>
 	<zorder>0</zorder>
 	<controls>
 		<control type="group">
-            <visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding </visible>
+            <visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Skin.HasSetting(show_progressbar)</visible>
             <visible>!Window.IsActive(videoosd)</visible>
             <visible>!Window.IsActive(musicosd)</visible>
             <visible>!Window.IsVisible(DialogFullScreenInfo.xml)</visible>
@@ -62,6 +62,18 @@
 					<font>font12_title</font>
 					<wrapmultiline>true</wrapmultiline>
 					<label>$VAR[SeekLabel]</label>
+					<visible>Window.IsActive(seekbar)</visible>
+				</control>
+				<control type="label">
+					<top>27</top>
+					<left>380</left>
+					<width>200</width>
+					<height>200</height>
+					<align>left</align>
+					<font>font12_title</font>
+					<wrapmultiline>true</wrapmultiline>
+					<label>Playing...</label>
+					<visible>!Window.IsActive(seekbar)</visible>
 				</control>
 				<control type="label">
 					<left>30</left>
