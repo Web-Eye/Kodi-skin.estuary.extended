@@ -1,11 +1,11 @@
 Kodi Skin Estuary Extended
 ==
 
-forked from Kodi 19 Matrix
+forked from Kodi 20 Nexus
 
 
 Dependencies:
 -
-- Repository https://holybid.com/kodi/repo/matrix/repository.lattsrepo/repository.lattsrepo-2.0.0.zip for beta scripts
+- Repository https://holybid.com/kodi/lattsrepo/master/repository.lattsrepo/repository.lattsrepo-4.0.1.zip for beta scripts
 
 

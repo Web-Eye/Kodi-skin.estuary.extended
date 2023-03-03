@@ -51,14 +51,14 @@
 							<param name="texture" value="osd/fullscreen/buttons/previous.png"/>
 						</include>
 						<onclick>PlayerControl(Previous)</onclick>
-						<visible>Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | [VideoPlayer.Content(LiveTV) + Player.SeekEnabled]</visible>
+						<visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | [Player.SeekEnabled + VideoPlayer.Content(livetv)]</visible>
 					</control>
 					<control type="radiobutton" id="601">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/rewind.png"/>
 						</include>
 						<onclick>PlayerControl(Rewind)</onclick>
-						<visible>Player.SeekEnabled + !VideoPlayer.Content(livetv)</visible>
+						<visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
 					</control>
 					<control type="group" id="698">
 						<width>76</width>
@@ -99,14 +99,14 @@
 							<param name="texture" value="osd/fullscreen/buttons/forward.png"/>
 						</include>
 						<onclick>PlayerControl(Forward)</onclick>
-						<visible>Player.SeekEnabled + !VideoPlayer.Content(livetv)</visible>
+						<visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
 					</control>
 					<control type="radiobutton" id="607">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/next.png"/>
 						</include>
 						<onclick>PlayerControl(Next)</onclick>
-						<visible>Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | PVR.IsTimeShift</visible>
+						<visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | PVR.IsTimeShift</visible>
 					</control>
 					<control type="radiobutton" id="608">
 						<textureradioonfocus colordiffuse="white">osd/fullscreen/buttons/record-white.png</textureradioonfocus>
@@ -175,19 +175,11 @@
 						<onclick>ActivateWindow(videoplaylist)</onclick>
 						<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 					</control>
-					<control type="radiobutton" id="70049">
-						<include content="OSDButton">
-							<param name="texture" value="osd/fullscreen/buttons/rating.png"/>
-						</include>
-						<onclick>Skin.ToggleSetting(show_progressbar)</onclick>
-					</control>
 					<control type="radiobutton" id="70043">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
 						</include>
-						<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.OriginalTitle])</onclick>
-						<onclick condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
-						<visible>!VideoPlayer.Content(livetv) + !VideoPlayer.HasMenu + !VideoPlayer.Content(musicvideos)</visible>
+						<onclick>Info</onclick>
 					</control>
 					<control type="radiobutton" id="70044">
 						<include content="OSDButton">

@@ -20,70 +20,61 @@
 					<item>
 						<label>$LOCALIZE[13012]</label>
 						<onclick>Quit()</onclick>
-						<visible>System.ShowExitButton + Skin.HasSetting(buttonmenu_show_exit)</visible>
+						<visible>System.ShowExitButton</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13016]</label>
 						<onclick>Powerdown()</onclick>
-						<visible>System.CanPowerDown + Skin.HasSetting(buttonmenu_show_powerdown)</visible>
+						<visible>System.CanPowerDown</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[20150]</label>
 						<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
-						<visible>!System.HasAlarm(shutdowntimer) + Skin.HasSetting(buttonmenu_show_shutdowntimer)</visible>
+						<visible>!System.HasAlarm(shutdowntimer)</visible>
 						<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[20151] $INFO[System.AlarmPos,(,)]</label>
 						<onclick>CancelAlarm(shutdowntimer)</onclick>
-						<visible>System.HasAlarm(shutdowntimer) + Skin.HasSetting(buttonmenu_show_shutdowntimer)</visible>
+						<visible>System.HasAlarm(shutdowntimer)</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13011]</label>
 						<onclick>Suspend()</onclick>
-						<visible>System.CanSuspend + Skin.HasSetting(buttonmenu_show_suspend)</visible>
+						<visible>System.CanSuspend</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13010]</label>
 						<onclick>Hibernate()</onclick>
-						<visible>System.CanHibernate + Skin.HasSetting(buttonmenu_show_hibernate)</visible>
+						<visible>System.CanHibernate</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13013]</label>
 						<onclick>Reset()</onclick>
-						<visible>System.CanReboot + Skin.HasSetting(buttonmenu_show_reboot)</visible>
+						<visible>System.CanReboot</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
 						<onclick>dialog.close(all,true)</onclick>
 						<onclick>System.LogOff</onclick>
 						<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-						<visible>System.Loggedon + Skin.HasSetting(buttonmenu_show_logoff)</visible>
+						<visible>System.Loggedon</visible>
 					</item>
 					<item>
 						<label>$VAR[MasterModeLabel]</label>
 						<onclick>mastermode</onclick>
-						<visible>System.HasLocks + Skin.HasSetting(buttonmenu_show_mastermode)</visible>
+						<visible>System.HasLocks</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13017]</label>
 						<onclick>InhibitIdleShutdown(true)</onclick>
-						<visible>System.HasShutdown +!System.IsInhibit + Skin.HasSetting(buttonmenu_show_inhibit)</visible>
+						<visible>System.HasShutdown +!System.IdleShutdownInhibited</visible>
 					</item>
 					<item>
 						<label>$LOCALIZE[13018]</label>
 						<onclick>InhibitIdleShutdown(false)</onclick>
-						<visible>System.HasShutdown + System.IsInhibit + Skin.HasSetting(buttonmenu_show_inhibit)</visible>
+						<visible>System.HasShutdown + System.IdleShutdownInhibited</visible>
 					</item>
-					<!--<item>
-						<label>$LOCALIZE[21417]</label>
-                        <onclick>dialog.close(all,true)</onclick>
-						<onclick>ActivateWindow(settings)</onclick>
-                    </item>-->
-                    <item>
-						<label>Reload Skin</label>
-						<onclick>ReloadSkin()</onclick>
-                    </item>
 				</content>
 			</control>
 		</control>

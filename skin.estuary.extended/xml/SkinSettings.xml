@@ -135,12 +135,6 @@
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
 					<selected>Skin.HasSetting(show_musicvideoposter)</selected>
 				</control>
-				<control type="radiobutton" id="6068">
-					<label>$LOCALIZE[31515]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(disable_clearart)</onclick>
-					<selected>Skin.HasSetting(disable_clearart)</selected>
-				</control>
 			</control>
 			<control type="grouplist" id="610">
 				<top>133</top>
@@ -173,6 +167,13 @@
 					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
 					<enable>!Skin.HasSetting(HomeMenuNoMovieButton)</enable>
 				</control>
+				<control type="button" id="627">
+					<label>- $LOCALIZE[31176]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SelectBool(31176, 37015|movieset_onclick_browse, 13362|movieset_onclick_continuewatching, 12021|movieset_onclick_playfrombeginning, 10008|movieset_onclick_playnext, 13347|movieset_onclick_queue)</onclick>
+					<label2>$VAR[MovieSetOnClickActionLabel2Var]</label2>
+					<enable>!Skin.HasSetting(HomeMenuNoMovieButton)</enable>
+				</control>
 				<control type="radiobutton" id="612">
 					<label>$LOCALIZE[20343]</label>
 					<include>DefaultSettingButton</include>
@@ -187,6 +188,13 @@
 					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
 					<enable>!Skin.HasSetting(HomeMenuNoTVShowButton)</enable>
 				</control>
+				<control type="button" id="626">
+					<label>- $LOCALIZE[31175]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SelectBool(31175, 37015|tvshow_onclick_browse, 13362|tvshow_onclick_continuewatching, 12021|tvshow_onclick_playfrombeginning, 10008|tvshow_onclick_playnext, 13347|tvshow_onclick_queue)</onclick>
+					<label2>$VAR[TVShowOnClickActionLabel2Var]</label2>
+					<enable>!Skin.HasSetting(HomeMenuNoTVShowButton)</enable>
+				</control>
 				<control type="radiobutton" id="613">
 					<label>$LOCALIZE[2]</label>
 					<include>DefaultSettingButton</include>
@@ -199,6 +207,13 @@
 					<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
 					<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
 					<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+					<enable>!Skin.HasSetting(HomeMenuNoMusicButton)</enable>
+				</control>
+				<control type="button" id="625">
+					<label>- $LOCALIZE[31174]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SelectBool(31174, 37015|album_onclick_browse, 208|album_onclick_play, 10008|album_onclick_playnext, 13347|album_onclick_queue)</onclick>
+					<label2>$VAR[AlbumOnClickActionLabel2Var]</label2>
 					<enable>!Skin.HasSetting(HomeMenuNoMusicButton)</enable>
 				</control>
 				<control type="radiobutton" id="6131">
@@ -257,88 +272,31 @@
 					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
 				</control>
 			</control>
-			<control type="grouplist" id="800">
-				<top>160</top>
+			<control type="grouplist" id="622">
+				<top>133</top>
 				<left>0</left>
 				<right>0</right>
 				<bottom>140</bottom>
 				<onleft>9000</onleft>
 				<onright>60</onright>
-				<onup>800</onup>
-				<ondown>800</ondown>
+				<onup>610</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>610</ondown>
 				<visible>Container(9000).HasFocus(4)</visible>
-				<control type="radiobutton" id="801">
-					<label>$LOCALIZE[31504]</label>
+				<control type="radiobutton" id="623">
+					<label>$LOCALIZE[31172]</label>
 					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(buttonmenu_show_exit)</selected>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_exit)</onclick>
+					<selected>Skin.HasSetting(OSDAutoClose)</selected>
+					<onclick>Skin.ToggleSetting(OSDAutoClose)</onclick>
 				</control>
-				<control type="radiobutton" id="802">
-					<label>$LOCALIZE[31505]</label>
+				<control type="button" id="624">
+					<label>- $LOCALIZE[31173]</label>
+					<label2>$VAR[SkinSettingOSDAutoCloseTime]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_powerdown)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_powerdown)</selected>
-				</control>
-				<control type="radiobutton" id="803">
-					<label>$LOCALIZE[31506]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_shutdowntimer)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_shutdowntimer)</selected>
-				</control>
-				<control type="radiobutton" id="804">
-					<label>$LOCALIZE[31507]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_suspend)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_suspend)</selected>
-				</control>
-				<control type="radiobutton" id="805">
-					<label>$LOCALIZE[31508]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_hibernate)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_hibernate)</selected>
-				</control>
-                <control type="radiobutton" id="806">
-					<label>$LOCALIZE[31509]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_reboot)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_reboot)</selected>
-				</control>
-                <control type="radiobutton" id="807">
-					<label>$LOCALIZE[31510]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_logoff)</onclick>
-					<selected>!Skin.HasSetting(buttonmenu_show_logoff)</selected>
-				</control>
-                <control type="radiobutton" id="808">
-					<label>$LOCALIZE[31511]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_mastermode)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_mastermode)</selected>
-				</control>
-                <control type="radiobutton" id="809">
-					<label>$LOCALIZE[31512]</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(buttonmenu_show_inhibit)</onclick>
-					<selected>Skin.HasSetting(buttonmenu_show_inhibit)</selected>
+					<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
+					<enable>Skin.HasSetting(OSDAutoClose)</enable>
 				</control>
 			</control>
-            <control type="grouplist" id="820">
-				<top>160</top>
-				<left>0</left>
-				<right>0</right>
-				<bottom>140</bottom>
-				<onleft>9000</onleft>
-				<onright>60</onright>
-				<onup>820</onup>
-				<ondown>820</ondown>
-				<visible>Container(9000).HasFocus(6)</visible>
-				<control type="radiobutton" id="821">
-					<label>$LOCALIZE[31513]</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(music_show_albumartistsonly)</selected>
-					<onclick>Skin.ToggleSetting(music_show_albumartistsonly)</onclick>
-				</control>
-            </control>
 			<control type="image">
 				<description>Dialog Header image</description>
 				<left>0</left>
@@ -413,21 +371,9 @@
 						<onclick>noop</onclick>
 					</item>
 					<item id="4">
-						<label>$LOCALIZE[31500]</label>
+						<label>$LOCALIZE[31170]</label>
 						<onclick>noop</onclick>
 					</item>
-                    <!-- <item id="5">
-						<label>$LOCALIZE[31501]</label>
-						<onclick>noop</onclick>
-					</item> -->
-                    <item id="6">
-						<label>$LOCALIZE[31502]</label>
-						<onclick>noop</onclick>
-					</item>
-                    <!-- <item id="7">
-						<label>$LOCALIZE[31503]</label>
-						<onclick>noop</onclick>
-					</item> -->
 				</content>
 			</control>
 		</control>
