@@ -289,7 +289,7 @@
 			</control>
 			<control type="group">
 				<animation effect="slide" end="90,0" time="0" condition="Skin.HasSetting(touchmode)">conditional</animation>
-				<control type="grouplist">
+				<!--<control type="grouplist">
 					<visible>!String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(Player.Art(clearlogo))</visible>
 					<top>10</top>
 					<left>20</left>
@@ -298,7 +298,7 @@
 					<itemgap>10</itemgap>
 					<orientation>horizontal</orientation>
 					<control type="image">
-						<width>300</width>
+						<width>3000</width>
 						<texture>$VAR[PlayerClearLogoVar]</texture>
 						<aspectratio aligny="center" align="center">keep</aspectratio>
 					</control>
@@ -310,11 +310,11 @@
 						<shadowcolor>text_shadow</shadowcolor>
 						<scroll>true</scroll>
 					</control>
-				</control>
+				</control>-->
 				<control type="group">
 					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>
-					<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
-					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
+					<!--<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
+					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>-->
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<left>20</left>
 					<right>400</right>
