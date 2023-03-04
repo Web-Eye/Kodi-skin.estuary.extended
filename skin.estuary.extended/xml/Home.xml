@@ -1074,7 +1074,7 @@
 					<onup>SetFocus(9000,99,absolute)</onup>
 					<ondown>SetFocus(9000,0,absolute)</ondown>
 					<onright>2000</onright>
-					<align>justify</align>
+					<!--<align>justify</align>-->
 					<include content="IconButton">
 						<param name="control_id" value="804" />
 						<param name="onclick" value="ActivateWindow(shutdownmenu)" />
