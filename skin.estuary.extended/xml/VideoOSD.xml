@@ -179,14 +179,14 @@
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
 						</include>
-						<!--
 						<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
 						<onclick condition="!System.hasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
 						<onclick condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
-						-->
+						<!--
 						<onclick condition="System.hasAddon(script.embuary.info) + VideoPlayer.Content(movies)">RunScript(script.embuary.info,call=movie,query='$INFO[VideoPlayer.Title]',year=$INFO[VideoPlayer.Year])</onclick>
 						<onclick condition="System.hasAddon(script.embuary.info) + VideoPlayer.Content(episodes)">RunScript(script.embuary.info,call=tv,query='$INFO[VideoPlayer.TvShowTitle]')</onclick>
 						<onclick condition="!System.hasAddon(script.embuary.info)">InstallAddon(script.embuary.info)</onclick>
+						-->
 						<!--
 						<onclick>ActivateWindow(movieinformation)</onclick>
 						-->
