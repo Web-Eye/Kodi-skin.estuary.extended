@@ -187,6 +187,9 @@
 						<onclick condition="System.hasAddon(script.embuary.info) + VideoPlayer.Content(movies)">RunScript(script.embuary.info,call=movie,query='$INFO[VideoPlayer.Title]',year=$INFO[VideoPlayer.Year])</onclick>
 						<onclick condition="System.hasAddon(script.embuary.info) + VideoPlayer.Content(episodes)">RunScript(script.embuary.info,call=tv,query='$INFO[VideoPlayer.TvShowTitle]')</onclick>
 						<onclick condition="!System.hasAddon(script.embuary.info)">InstallAddon(script.embuary.info)</onclick>
+						<!--
+						<onclick>ActivateWindow(movieinformation)</onclick>
+						-->
                         <visible>!VideoPlayer.Content(livetv) + !VideoPlayer.HasMenu + !VideoPlayer.Content(musicvideos)</visible>
                         <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
 					</control>
