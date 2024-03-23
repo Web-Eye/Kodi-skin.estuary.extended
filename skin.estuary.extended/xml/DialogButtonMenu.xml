@@ -75,11 +75,11 @@
 						<onclick>InhibitIdleShutdown(false)</onclick>
 						<visible>System.HasShutdown + System.IdleShutdownInhibited + Skin.HasSetting(buttonmenu_show_inhibit)</visible>
 					</item>
-					<item>
+					<!--<item>
 						<label>$LOCALIZE[21417]</label>
                         <onclick>dialog.close(all,true)</onclick>
 						<onclick>ActivateWindow(settings)</onclick>
-                    </item>
+                    </item>-->
                     <item>
 						<label>Reload Skin</label>
 						<onclick>ReloadSkin()</onclick>
