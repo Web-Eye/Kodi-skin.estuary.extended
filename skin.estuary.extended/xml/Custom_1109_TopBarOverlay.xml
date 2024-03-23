@@ -11,7 +11,7 @@
 			<visible>![Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)] + [!String.IsEmpty(Player.SeekNumeric) | Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
 			<animation effect="slide" start="0,0" end="0,-80" time="300" condition="Player.Paused + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1109_topbaroverlay),5)">Conditional</animation>
-			<control type="image">
+			<!--<control type="image">
 				<left>0</left>
 				<top>0</top>
 				<width>100%</width>
@@ -87,6 +87,109 @@
 				<textureslidernibfocus colordiffuse="button_focus">colors/white.png</textureslidernibfocus>
 				<info>Player.Seekbar</info>
 				<visible>!VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.HasPerformedSeek(3) | Player.Paused]</visible>
+			</control>-->
+			<top>15</top>
+            <left>1245</left>
+			<control type="group">
+                <visible>player.chaptercount + Window.IsVisible(FullScreenVideo)</visible>
+                <control type="image">
+                    <top>-30</top>
+                    <width>150</width>
+                    <height>133</height>
+                    <colordiffuse>FFFFFFFF</colordiffuse>
+                    <texture border="40">buttons/dialogbutton-nofo.png</texture>
+                </control>
+                <control type="label">
+                    <top>-1</top>
+                    <left>30</left>
+                    <width>150</width>
+                    <height>20</height>
+                    <align>left</align>
+                    <font>font12_title</font>
+                    <label>[COLOR=$VAR[SkinColorVar]]$LOCALIZE[21396][/COLOR]</label>
+                </control>
+                <control type="label">
+                    <top>31</top>
+                    <left>30</left>
+                    <width>150</width>
+                    <height>20</height>
+                    <align>left</align>
+                    <font>font12_title</font>
+                    <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
+                </control>
+            </control>
+			<control type="group">
+				<top>-30</top>
+				<left>120</left>
+				<control type="image">
+					<width>570</width>
+					<height>133</height>
+					<colordiffuse>FFFFFFFF</colordiffuse>
+					<texture border="40">buttons/dialogbutton-nofo.png</texture>
+				</control>
+				<control type="label">
+					<top>27</top>
+					<left>380</left>
+					<width>200</width>
+					<height>200</height>
+					<align>left</align>
+					<font>font12_title</font>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$VAR[SeekLabel]</label>
+					<visible>Window.IsActive(seekbar)</visible>
+				</control>
+				<control type="label">
+					<top>27</top>
+					<left>380</left>
+					<width>200</width>
+					<height>200</height>
+					<align>left</align>
+					<font>font12_title</font>
+					<wrapmultiline>true</wrapmultiline>
+					<label>Playing...</label>
+					<visible>!Window.IsActive(seekbar)</visible>
+				</control>
+				<control type="label">
+					<left>30</left>
+					<top>29</top>
+					<width>350</width>
+					<height>20</height>
+					<font>font13_title</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[SeekTimeLabelVar]</label>
+				</control>
+				<control type="progress">
+                   <animation effect="fade" end="0" time="200">WindowClose</animation>
+                   <left>30</left>
+                   <top>69</top>
+                   <width>335</width>
+                   <height>20</height>
+                   <info>Player.ProgressCache</info>
+                   <texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
+                   <midtexture colordiffuse="$VAR[SkinColorVar]">colors/white50.png</midtexture>
+                </control>
+                <control type="progress">
+                    <animation effect="fade" end="0" time="200">WindowClose</animation>
+                    <left>30</left>
+                    <top>69</top>
+                    <width>335</width>
+                    <height>20</height>
+                    <info>Player.Progress</info>
+                </control>
+                <control type="slider" id="401">
+                    <left>30</left>
+                    <top>72</top>
+                    <width>335</width>
+                    <height>15</height>
+                    <onup>8010</onup>
+                    <ondown>650</ondown>
+                    <orientation>horizontal</orientation>
+                    <info>Player.Progress</info>
+                    <texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
+                    <textureslidernib colordiffuse="$VAR[SkinColorVar]">osd/progress/nub_bar.png</textureslidernib>
+                    <textureslidernibfocus colordiffuse="$VAR[SkinColorVar]">colors/white.png</textureslidernibfocus>
+                </control>
 			</control>
 			<control type="group">
 				<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -114,7 +217,7 @@
 					</include>
 				</control>
 			</control>
-			<control type="slider">
+			<!--<control type="slider">
 				<left>0</left>
 				<top>50</top>
 				<width>100%</width>
@@ -162,7 +265,7 @@
 				<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
 				<righttexture>colors/white.png</righttexture>
 				<info>Player.Chapters</info>
-			</control>
+			</control>-->
 		</control>
 		<control type="group">
 			<animation effect="slide" end="0,-200" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
@@ -178,7 +281,7 @@
 			</control>
 			<control type="group">
 				<animation effect="slide" end="90,0" time="0" condition="Skin.HasSetting(touchmode)">conditional</animation>
-				<control type="grouplist">
+				<!--<control type="grouplist">
 					<visible>!String.IsEmpty(Player.Art(tvshow.clearlogo)) | !String.IsEmpty(Player.Art(clearlogo))</visible>
 					<top>10</top>
 					<left>20</left>
@@ -199,11 +302,11 @@
 						<shadowcolor>text_shadow</shadowcolor>
 						<scroll>true</scroll>
 					</control>
-				</control>
+				</control>-->
 				<control type="group">
 					<visible>!Window.IsActive(pvrosdchannels) + !Window.IsActive(pvrchannelguide)</visible>
-					<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
-					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>
+					<!--<visible>String.IsEmpty(Player.Art(clearlogo))</visible>
+					<visible>String.IsEmpty(Player.Art(tvshow.clearlogo))</visible>-->
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<left>20</left>
 					<right>400</right>
