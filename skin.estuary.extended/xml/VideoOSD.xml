@@ -177,6 +177,12 @@
 						<onclick>ActivateWindow(videoplaylist)</onclick>
 						<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 					</control>
+					<control type="radiobutton" id="70049">
+						<include content="OSDButton">
+							<param name="texture" value="osd/fullscreen/buttons/channels.png"/>
+						</include>
+						<onclick>Skin.ToggleSetting(show_progressbar)</onclick>
+					</control>
 					<control type="radiobutton" id="70043">
 						<include content="OSDButton">
 							<param name="texture" value="osd/fullscreen/buttons/information.png"/>
