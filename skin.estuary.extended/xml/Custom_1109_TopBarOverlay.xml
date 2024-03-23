@@ -271,6 +271,7 @@
 			<animation effect="slide" end="0,-200" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 			<animation effect="slide" start="0,-200" end="0,0" time="300" tween="cubic" easing="out">VisibleChange</animation>
 			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) + ![Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			<visible>![Window.IsActive(musicosd) | Player.ShowInfo]</visible>
 			<depth>DepthBars</depth>
 			<control type="image">
 				<left>0</left>
@@ -326,7 +327,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!Window.IsVisible(extendedprogressdialog)</visible>
+				<visible>!Window.IsVisible(extendedprogressdialog) + Player.HasVideo</visible>
 				<animation effect="fade" time="150">VisibleChange</animation>
 				<control type="label">
 					<font>font_clock</font>
