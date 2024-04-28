@@ -379,6 +379,23 @@
 					<onclick>Skin.ToggleSetting(music_show_albumartistsonly)</onclick>
 				</control>
             </control>
+			<control type="grouplist" id="840">
+				<top>160</top>
+				<left>0</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>820</onup>
+				<ondown>820</ondown>
+				<visible>Container(9000).HasFocus(9)</visible>
+				<control type="radiobutton" id="841">
+					<label>$LOCALIZE[31516]</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(disable_1109_topbaroverlay_timer)</selected>
+					<onclick>Skin.ToggleSetting(disable_1109_topbaroverlay_timer)</onclick>
+				</control>
+            </control>
 			<control type="image">
 				<description>Dialog Header image</description>
 				<left>0</left>
@@ -472,6 +489,10 @@
 						<label>$LOCALIZE[31503]</label>
 						<onclick>noop</onclick>
 					</item> -->
+					<item id="9">
+						<label>$LOCALIZE[31515]</label>
+						<onclick>noop</onclick>
+					</item>
 				</content>
 			</control>
 		</control>
