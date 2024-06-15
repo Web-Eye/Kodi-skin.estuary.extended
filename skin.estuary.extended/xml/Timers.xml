@@ -15,6 +15,14 @@
         <reset>[Player.Seeking | Player.Forwarding | Player.Rewinding | Player.HasPerformedSeek(1)] + !Skin.HasSetting(disable_1109_topbaroverlay_timer)</reset>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1109_topbaroverlay),5) | Player.Playing</stop>
     </timer>
+    <timer>
+        <name>autoswitchvisualisation</name>
+        <description>-</description>
+        <start reset="true">Skin.HasSetting(music_autoswitchvisualisation) + Player.HasAudio + !Integer.IsEqual(MusicPlayer.Time,0) + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + !Window.IsActive(visualisation)</start>
+        <reset>!Window.IsActive(visualisation) + !System.IdleTime(1)</reset>
+        <stop>!Window.IsActive(visualisation) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoswitchvisualisation), 30)</stop>
+        <onstop>ActivateWindow(visualisation)</onstop>
+    </timer>
 </timers>
 
 

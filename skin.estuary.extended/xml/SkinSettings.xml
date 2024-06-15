@@ -378,7 +378,14 @@
 					<selected>Skin.HasSetting(music_show_albumartistsonly)</selected>
 					<onclick>Skin.ToggleSetting(music_show_albumartistsonly)</onclick>
 				</control>
+				<control type="radiobutton" id="822">
+					<label>$LOCALIZE[31517]</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(music_autoswitchvisualisation)</selected>
+					<onclick>Skin.ToggleSetting(music_autoswitchvisualisation)</onclick>
+				</control>
             </control>
+
 			<control type="grouplist" id="840">
 				<top>160</top>
 				<left>0</left>
