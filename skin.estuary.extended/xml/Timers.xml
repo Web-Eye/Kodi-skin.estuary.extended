@@ -20,7 +20,7 @@
         <description>-</description>
         <start reset="true">Skin.HasSetting(music_autoswitchvisualisation) + Player.HasAudio + !Integer.IsEqual(MusicPlayer.Time,0) + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + !Window.IsActive(visualisation)</start>
         <reset>!Window.IsActive(visualisation) + !System.IdleTime(1)</reset>
-        <stop>!Window.IsActive(visualisation) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoswitchvisualisation), 30)</stop>
+        <stop>Skin.HasSetting(music_autoswitchvisualisation) + Player.HasAudio + !Integer.IsEqual(MusicPlayer.Time,0) + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + !Window.IsActive(visualisation) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoswitchvisualisation), 30)</stop>
         <onstop>ActivateWindow(visualisation)</onstop>
     </timer>
 </timers>
