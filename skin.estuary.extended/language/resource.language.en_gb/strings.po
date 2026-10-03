@@ -891,6 +891,74 @@ msgstr ""
 
 #empty strings from id 31178 to 31596
 
+msgctxt "#31500"
+msgid "[mod] Exit"
+msgstr "[mod] Exit"
+
+msgctxt "#31501"
+msgid "[mod] Menu"
+msgstr "[mod] Menu"
+
+msgctxt "#31502"
+msgid "[mod] Music"
+msgstr "[mod] Music"
+
+msgctxt "#31503"
+msgid "[mod] Widget"
+msgstr "[mod] Widget"
+
+msgctxt "#31504"
+msgid "Show Quit Button"
+msgstr "Show Quit Button"
+
+msgctxt "#31505"
+msgid "Show Powerdown Button"
+msgstr "Show Powerdown Button"
+
+msgctxt "#31506"
+msgid "Show Shutdown Timer Button"
+msgstr "Show Shutdown Timer Button"
+
+msgctxt "#31507"
+msgid "Show Suspend Button"
+msgstr "Show Suspend Button"
+
+msgctxt "#31508"
+msgid "Show Hibernate Button"
+msgstr "Show Hibernate Button"
+
+msgctxt "#31509"
+msgid "Show Reboot Button"
+msgstr "Show Reboot Button"
+
+msgctxt "#31510"
+msgid "Show LogOff Button"
+msgstr "Show LogOff Button"
+
+msgctxt "#31511"
+msgid "Show Master Mode Button"
+msgstr "Show Master Mode Button"
+
+msgctxt "#31512"
+msgid "Show Inhibit Button"
+msgstr "Show Inhibit Button"
+
+msgctxt "#31513"
+msgid "Show Album Artists"
+msgstr "Show Album Artists"
+
+msgctxt "#31514"
+msgid "In progress episodes"
+msgstr "In progress episodes"
+
+msgctxt "#31515"
+msgid "[mod] Misc"
+msgstr "[mod] Misc"
+
+msgctxt "#31516"
+msgid "Disable TopBarOverlay-Timer"
+msgstr "Disable TopBarOverlay-Timer"
+
 #: /xml/Includes_SettingsDialog.xml
 #. Button to select Player Process Info window
 msgctxt "#31597"
