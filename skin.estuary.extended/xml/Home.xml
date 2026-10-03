@@ -208,16 +208,7 @@
 							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31012]"/>
 							<param name="widget_target" value="music"/>
-							<param name="list_id" value="7100"/>
-							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
-							<param name="onclick_condition" value="true"/>
-							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
-						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_music_recentalbums_widget)">
-							<param name="content_path" value="musicdb://recentlyaddedalbums/"/>
-							<param name="widget_header" value="$LOCALIZE[359]"/>
-							<param name="widget_target" value="music"/>
-							<param name="list_id" value="7200"/>
+							<param name="list_id" value="7150"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
@@ -226,7 +217,7 @@
 							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31012]"/>
 							<param name="widget_target" value="music"/>
-							<param name="list_id" value="7200"/>
+							<param name="list_id" value="7250"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
@@ -254,7 +245,7 @@
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
 							<param name="browse_mode" value="never"/>
-							<param name="list_id" value="7400"/>
+							<param name="list_id" value="7450"/>
 							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
 						</include>
 						<include content="WidgetListSquare" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_music_unplayedalbums_widget)">
@@ -270,7 +261,7 @@
 							<param name="content_path" value="musicdb://artists/?albumartistsonly=true"/>
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
-							<param name="list_id" value="7500"/>
+							<param name="list_id" value="7550"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
@@ -286,12 +277,21 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
+						<include content="WidgetListSquare" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_music_recentalbums_widget)">
+							<param name="content_path" value="musicdb://recentlyaddedalbums/"/>
+							<param name="widget_header" value="$LOCALIZE[359]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7200"/>
+							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
+							<param name="onclick_condition" value="true"/>
+							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
+						</include>
 					</control>
 					<include content="ImageWidget" condition="!Library.HasContent(music)">
 						<param name="text_label" value="$LOCALIZE[31104]" />
 						<param name="button_label" value="$LOCALIZE[31110]" />
 						<param name="button_onclick" value="ActivateWindow(music,files)"/>
-						<param name="button_id" value="7600"/>
+						<param name="button_id" value="7650"/>
 						<param name="button2_onclick" value="Skin.SetBool(HomeMenuNoMusicButton)"/>
 					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
@@ -1189,6 +1189,12 @@
 						<param name="label" value="$LOCALIZE[137]" />
 					</include>
 					-->
+					<include content="IconButton">
+						<param name="control_id" value="806" />
+						<param name="onclick" value="ActivateWindow(1100)" />
+						<param name="icon" value="icons/submenu/add-ons.png" />
+						<param name="label" value="$LOCALIZE[24001]" />
+                 	</include>
 					<include content="IconButton">
 						<param name="control_id" value="803" />
 						<param name="onclick" value="Fullscreen" />
