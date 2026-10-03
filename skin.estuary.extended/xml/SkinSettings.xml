@@ -410,7 +410,7 @@
 				<onright>60</onright>
 				<onup>820</onup>
 				<ondown>820</ondown>
-				<visible>Container(9000).HasFocus(7)</visible>
+				<visible>Container(9000).HasFocus(6)</visible>
 				<control type="radiobutton" id="821">
 					<label>$LOCALIZE[31513]</label>
 					<include>DefaultSettingButton</include>
@@ -424,7 +424,6 @@
 					<onclick>Skin.ToggleSetting(music_autoswitchvisualisation)</onclick>
 				</control>
             </control>
-
 			<control type="grouplist" id="840">
 				<top>160</top>
 				<left>0</left>
@@ -434,7 +433,7 @@
 				<onright>60</onright>
 				<onup>820</onup>
 				<ondown>820</ondown>
-				<visible>Container(9000).HasFocus(9)</visible>
+				<visible>Container(9000).HasFocus(7)</visible>
 				<control type="radiobutton" id="841">
 					<label>$LOCALIZE[31516]</label>
 					<include>DefaultSettingButton</include>

@@ -784,6 +784,10 @@ msgctxt "#31516"
 msgid "Disable TopBarOverlay-Timer"
 msgstr "Disable TopBarOverlay-Timer"
 
+msgctxt "#31517"
+msgid "Autoswitch to visualisation"
+msgstr "Autoswitch to visualisation"
+
 #. Button to select Player Process Info window
 msgctxt "#31597"
 msgid "Player info"
