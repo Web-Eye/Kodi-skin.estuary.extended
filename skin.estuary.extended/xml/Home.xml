@@ -83,6 +83,7 @@
 							<param name="browse_mode" value="never"/>
 							<param name="list_id" value="5400"/>
 						</include>
+						<!--
 						<include content="WidgetListCategories" condition="Library.HasContent(movies) + !Skin.HasSetting(home_no_movies_genres_widget)">
 							<param name="content_path" value="videodb://movies/genres/"/>
 							<param name="widget_header" value="$LOCALIZE[135]"/>
@@ -91,6 +92,7 @@
 							<param name="icon" value="$VAR[WidgetGenreIconVar]"/>
 							<param name="icon_height" value="70"/>
 						</include>
+						-->
 						<include content="WidgetListPoster" condition="Library.HasContent(movies) + !Skin.HasSetting(home_no_movies_sets_widget)">
 							<param name="content_path" value="videodb://movies/sets/"/>
 							<param name="widget_header" value="$LOCALIZE[31075]"/>
@@ -202,9 +204,27 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
+						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
+							<param name="widget_header" value="$LOCALIZE[31012]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7100"/>
+							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
+							<param name="onclick_condition" value="true"/>
+							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
+						</include>
 						<include content="WidgetListSquare" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_music_recentalbums_widget)">
 							<param name="content_path" value="musicdb://recentlyaddedalbums/"/>
 							<param name="widget_header" value="$LOCALIZE[359]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7200"/>
+							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
+							<param name="onclick_condition" value="true"/>
+							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
+						</include>
+						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
+							<param name="widget_header" value="$LOCALIZE[31012]"/>
 							<param name="widget_target" value="music"/>
 							<param name="list_id" value="7200"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
@@ -229,9 +249,26 @@
 							<param name="list_id" value="7400"/>
 							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
 						</include>
+						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+							<param name="content_path" value="musicdb://artists/?albumartistsonly=true"/>
+							<param name="widget_header" value="$LOCALIZE[31013]"/>
+							<param name="widget_target" value="music"/>
+							<param name="browse_mode" value="never"/>
+							<param name="list_id" value="7400"/>
+							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
+						</include>
 						<include content="WidgetListSquare" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_music_unplayedalbums_widget)">
 							<param name="content_path" value="special://skin/playlists/unplayed_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31014]"/>
+							<param name="widget_target" value="music"/>
+							<param name="list_id" value="7500"/>
+							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
+							<param name="onclick_condition" value="true"/>
+							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
+						</include>
+						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+							<param name="content_path" value="musicdb://artists/?albumartistsonly=true"/>
+							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
 							<param name="list_id" value="7500"/>
 							<param name="fallback_icon" value="DefaultMusicAlbums.png"/>
@@ -978,6 +1015,23 @@
 					</itemlayout>
 					<content>
 						<item>
+							<label>$LOCALIZE[8]</label>
+							<onclick condition="!String.IsEmpty(Weather.Plugin)">ActivateWindow(Weather)</onclick>
+							<onclick condition="String.IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</onclick>
+							<property name="menu_id">$NUMBER[15000]</property>
+							<thumb>icons/sidemenu/weather.png</thumb>
+							<property name="id">weather</property>
+							<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[3]</label>
+							<onclick>ActivateWindow(Videos,root)</onclick>
+							<property name="menu_id">$NUMBER[11000]</property>
+							<thumb>icons/sidemenu/videos.png</thumb>
+							<property name="id">video</property>
+							<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
+						</item>
+						<item>
 							<label>$LOCALIZE[342]</label>
 							<onclick condition="Library.HasContent(movies) + Skin.HasSetting(home_no_movies_categories_widget) + !System.GetBool(myvideos.flatten)">ActivateWindow(Videos,videodb://movies/,return)</onclick>
 							<onclick condition="Library.HasContent(movies) + Skin.HasSetting(home_no_movies_categories_widget) + System.GetBool(myvideos.flatten)">ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
@@ -1005,7 +1059,15 @@
 							<property name="menu_id">$NUMBER[7000]</property>
 							<thumb>icons/sidemenu/music.png</thumb>
 							<property name="id">music</property>
-							<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
+							<visible>!Skin.HasSetting(HomeMenuNoMusicButton) + !Skin.HasSetting(music_show_albumartistsonly)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[2]</label>
+							<onclick>ActivateWindow(Music,musicdb://artists/?albumartistsonly=true,return)</onclick>
+							<property name="menu_id">$NUMBER[7000]</property>
+							<thumb>icons/sidemenu/music.png</thumb>
+							<property name="id">music</property>
+							<visible>!Skin.HasSetting(HomeMenuNoMusicButton)+ Skin.HasSetting(music_show_albumartistsonly)</visible>
 						</item>
 						<item>
 							<label>$LOCALIZE[427]</label>
@@ -1063,6 +1125,7 @@
 							<property name="id">pictures</property>
 							<visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
 						</item>
+						<!--
 						<item>
 							<label>$LOCALIZE[3]</label>
 							<onclick>ActivateWindow(Videos,root)</onclick>
@@ -1071,6 +1134,7 @@
 							<property name="id">video</property>
 							<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
 						</item>
+						-->
 						<item>
 							<label>$LOCALIZE[10134]</label>
 							<onclick>ActivateWindow(favouritesbrowser)</onclick>
@@ -1079,6 +1143,7 @@
 							<property name="id">favorites</property>
 							<visible>!Skin.HasSetting(HomeMenuNoFavButton)</visible>
 						</item>
+						<!--
 						<item>
 							<label>$LOCALIZE[8]</label>
 							<onclick condition="!String.IsEmpty(Weather.Plugin)">ActivateWindow(Weather)</onclick>
@@ -1088,6 +1153,7 @@
 							<property name="id">weather</property>
 							<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 						</item>
+						-->
 					</content>
 				</control>
 				<control type="grouplist" id="700">
@@ -1100,7 +1166,9 @@
 					<onup>SetFocus(9000,99,absolute)</onup>
 					<ondown>SetFocus(9000,0,absolute)</ondown>
 					<onright>2000</onright>
+					<!--
 					<align>justify</align>
+					-->
 					<include content="IconButton">
 						<param name="control_id" value="804" />
 						<param name="onclick" value="ActivateWindow(shutdownmenu)" />
@@ -1113,12 +1181,14 @@
 						<param name="icon" value="icons/settings.png" />
 						<param name="label" value="$LOCALIZE[21417]" />
 					</include>
+					<!--
 					<include content="IconButton">
 						<param name="control_id" value="801" />
 						<param name="onclick" value="ActivateWindow(1107)" />
 						<param name="icon" value="icons/search.png" />
 						<param name="label" value="$LOCALIZE[137]" />
 					</include>
+					-->
 					<include content="IconButton">
 						<param name="control_id" value="803" />
 						<param name="onclick" value="Fullscreen" />
