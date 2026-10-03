@@ -2,16 +2,16 @@
 <window type="dialog" id="1109">
 	<onload>Skin.TimerStart(1109_topbaroverlay)</onload>
 	<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
-	<visible>Window.IsActive(seekbar) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) | Skin.HasSetting(show_progressbar)</visible>
+	<visible>Window.IsActive(seekbar) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)</visible>
 	<depth>DepthOSD</depth>
 	<include>Animation_TopSlide</include>
 	<zorder>0</zorder>
 	<controls>
 		<control type="group">
-			<visible>![Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)] + [!String.IsEmpty(Player.SeekNumeric) | Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused | [Skin.HasSetting(show_progressbar) + !Window.IsActive(visualisation)]] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+			<visible>![Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide)] + [!String.IsEmpty(Player.SeekNumeric) | Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			<animation effect="fade" start="0" end="100" time="300">VisibleChange</animation>
-			<animation effect="slide" start="0,0" end="0,-80" time="300" condition="!Skin.HasSetting(disable_1109_topbaroverlay_timer) + Player.Paused + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1109_topbaroverlay),5)">Conditional</animation>
-			<!--<control type="image">
+			<animation effect="slide" start="0,0" end="0,-80" time="300" condition="Player.Paused + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1109_topbaroverlay),5)">Conditional</animation>
+			<control type="image">
 				<left>0</left>
 				<top>0</top>
 				<width>100%</width>
@@ -87,109 +87,6 @@
 				<textureslidernibfocus colordiffuse="button_focus">colors/white.png</textureslidernibfocus>
 				<info>Player.Seekbar</info>
 				<visible>!VideoPlayer.Content(LiveTV) + [Player.Seeking | Player.HasPerformedSeek(3) | Player.Paused]</visible>
-			</control>-->
-			<top>15</top>
-            <left>1245</left>
-			<control type="group">
-                <visible>player.chaptercount + Window.IsVisible(FullScreenVideo)</visible>
-                <control type="image">
-                    <top>-30</top>
-                    <width>150</width>
-                    <height>133</height>
-                    <colordiffuse>FFFFFFFF</colordiffuse>
-                    <texture border="40">buttons/dialogbutton-nofo.png</texture>
-                </control>
-                <control type="label">
-                    <top>-1</top>
-                    <left>30</left>
-                    <width>150</width>
-                    <height>20</height>
-                    <align>left</align>
-                    <font>font12_title</font>
-                    <label>[COLOR=$VAR[SkinColorVar]]$LOCALIZE[21396][/COLOR]</label>
-                </control>
-                <control type="label">
-                    <top>31</top>
-                    <left>30</left>
-                    <width>150</width>
-                    <height>20</height>
-                    <align>left</align>
-                    <font>font12_title</font>
-                    <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
-                </control>
-            </control>
-			<control type="group">
-				<top>-30</top>
-				<left>120</left>
-				<control type="image">
-					<width>570</width>
-					<height>133</height>
-					<colordiffuse>FFFFFFFF</colordiffuse>
-					<texture border="40">buttons/dialogbutton-nofo.png</texture>
-				</control>
-				<control type="label">
-					<top>27</top>
-					<left>380</left>
-					<width>200</width>
-					<height>200</height>
-					<align>left</align>
-					<font>font12_title</font>
-					<wrapmultiline>true</wrapmultiline>
-					<label>$VAR[SeekLabel]</label>
-					<visible>Window.IsActive(seekbar)</visible>
-				</control>
-				<control type="label">
-					<top>27</top>
-					<left>380</left>
-					<width>200</width>
-					<height>200</height>
-					<align>left</align>
-					<font>font12_title</font>
-					<wrapmultiline>true</wrapmultiline>
-					<label>Playing...</label>
-					<visible>!Window.IsActive(seekbar)</visible>
-				</control>
-				<control type="label">
-					<left>30</left>
-					<top>29</top>
-					<width>350</width>
-					<height>20</height>
-					<font>font13_title</font>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$VAR[SeekTimeLabelVar]</label>
-				</control>
-				<control type="progress">
-                   <animation effect="fade" end="0" time="200">WindowClose</animation>
-                   <left>30</left>
-                   <top>69</top>
-                   <width>335</width>
-                   <height>20</height>
-                   <info>Player.ProgressCache</info>
-                   <texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
-                   <midtexture colordiffuse="$VAR[SkinColorVar]">colors/white50.png</midtexture>
-                </control>
-                <control type="progress">
-                    <animation effect="fade" end="0" time="200">WindowClose</animation>
-                    <left>30</left>
-                    <top>69</top>
-                    <width>335</width>
-                    <height>20</height>
-                    <info>Player.Progress</info>
-                </control>
-                <control type="slider" id="401">
-                    <left>30</left>
-                    <top>72</top>
-                    <width>335</width>
-                    <height>15</height>
-                    <onup>8010</onup>
-                    <ondown>650</ondown>
-                    <orientation>horizontal</orientation>
-                    <info>Player.Progress</info>
-                    <texturesliderbar colordiffuse="00FFFFFF">osd/progress/nub_bar.png</texturesliderbar>
-                    <textureslidernib colordiffuse="$VAR[SkinColorVar]">osd/progress/nub_bar.png</textureslidernib>
-                    <textureslidernibfocus colordiffuse="$VAR[SkinColorVar]">colors/white.png</textureslidernibfocus>
-                </control>
 			</control>
 			<control type="group">
 				<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -217,7 +114,7 @@
 					</include>
 				</control>
 			</control>
-			<!--<control type="slider">
+			<control type="slider">
 				<left>0</left>
 				<top>50</top>
 				<width>100%</width>
@@ -265,13 +162,21 @@
 				<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
 				<righttexture>colors/white.png</righttexture>
 				<info>Player.Chapters</info>
-			</control>-->
+			</control>
+			<control type="ranges">
+				<left>0</left>
+				<top>61</top>
+				<width>100%</width>
+				<height>4</height>
+				<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+				<righttexture>colors/white.png</righttexture>
+				<info>Player.Bookmarks</info>
+			</control>
 		</control>
 		<control type="group">
 			<animation effect="slide" end="0,-200" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 			<animation effect="slide" start="0,-200" end="0,0" time="300" tween="cubic" easing="out">VisibleChange</animation>
 			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) + ![Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
-			<visible>![Window.IsActive(musicosd) | Player.ShowInfo]</visible>
 			<depth>DepthBars</depth>
 			<control type="image">
 				<left>0</left>
@@ -327,7 +232,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!Window.IsVisible(extendedprogressdialog) + Player.HasVideo</visible>
+				<visible>!Window.IsVisible(extendedprogressdialog)</visible>
 				<animation effect="fade" time="150">VisibleChange</animation>
 				<control type="label">
 					<font>font_clock</font>
@@ -353,15 +258,21 @@
 						<shadowcolor>text_shadow</shadowcolor>
 						<height>100</height>
 						<width>auto</width>
-						<visible>!String.isempty(Player.Duration)</visible>
-						<visible>Player.HasVideo + ![Player.HasGame | VideoPlayer.HasEpg]</visible>
+						<visible>!Player.IsLive + Player.HasVideo + ![Player.HasGame | VideoPlayer.HasEpg] + !String.IsEmpty(Player.Duration)</visible>
+					</control>
+					<control type="label">
+						<label>$LOCALIZE[31081]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<height>100</height>
+						<width>auto</width>
+						<visible>Player.IsLive</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[PVR.EpgEventFinishTime,$LOCALIZE[31080]: ]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 						<height>100</height>
 						<width>auto</width>
-						<visible>VideoPlayer.HasEpg</visible>
+						<visible>!Player.IsLive + VideoPlayer.HasEpg</visible>
 					</control>
 					<control type="image">
 						<top>2</top>
