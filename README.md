@@ -1,7 +1,7 @@
 Kodi Skin Estuary Extended
 ==
 
-forked from Kodi 20 Nexus
+forked from Kodi 22 Piers.RC1
 
 
 Dependencies:
